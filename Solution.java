@@ -1,17 +1,16 @@
 class Solution {
-    public int[] twoSum(int[] nums, int target) {
-             HashMap<Integer, Integer> map = new HashMap<>();
-        
-         for (int i = 0; i < nums.length; i++) {
-            int complement = target - nums[i]; 
-          
-            if (map.containsKey(complement)) {
-                return new int[] { map.get(complement), i };
-            }
-            
-            map.put(nums[i], i);
+    public int reverse(int x) {
+        long sum = 0;   
+
+        while (x != 0) {
+            int rem = x % 10;
+            sum = sum * 10 + rem;
+            x /= 10;
         }
-        
-        return new int[] {}; 
+
+        if (sum > Integer.MAX_VALUE || sum < Integer.MIN_VALUE) {
+            return 0;
+        }
+
+        return (int) sum;
     }
-}
